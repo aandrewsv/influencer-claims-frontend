@@ -1,6 +1,7 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
+import Link from 'next/link';
 import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/24/solid';
 import { UserGroupIcon, CheckCircleIcon, ChartBarIcon } from '@heroicons/react/24/outline';
 import { influencerService } from '@/services/api';
@@ -75,11 +76,19 @@ export default function InfluencerLeaderboard() {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-2">
-          <h1 className="text-3xl font-bold">Influencer Trust Leaderboard</h1>
-          <p className="text-gray-400 text-sm mt-1">
+        <div className="flex justify-between items-start mb-2">
+          <div>
+            <h1 className="text-3xl font-bold">Influencer Trust Leaderboard</h1>
+            <p className="text-gray-400 text-sm mt-1">
             Real-time rankings of health influencers based on scientific accuracy, credibility, and transparency. Updated daily using AI-powered analysis.
-          </p>
+            </p>
+          </div>
+          <Link 
+            href="/research/new"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+          >
+            New Research
+          </Link>
         </div>
 
         {/* Stats Cards */}
@@ -122,8 +131,15 @@ export default function InfluencerLeaderboard() {
             </thead>
             <tbody className="divide-y divide-gray-700">
               {influencers?.map((inf, index) => (
-                <tr key={inf.id} className="hover:bg-gray-800/30">
-                  <td className="py-4 px-6 font-medium">#{index + 1}</td>
+                <tr key={inf.id} className="hover:bg-gray-800/30 transition-colors duration-150 cursor-pointer group">
+                  <td className="py-4 px-6 font-medium relative">
+                    <Link 
+                      href={`/influencers/${inf.id}`}
+                      className="absolute inset-0 w-[1000%] z-10"
+                      aria-label={`View research for ${inf.mainName}`}
+                    />
+                    #{index + 1}
+                  </td>
                   <td className="py-4 px-6">
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">

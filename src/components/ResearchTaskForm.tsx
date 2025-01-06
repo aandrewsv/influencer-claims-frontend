@@ -169,7 +169,7 @@ export default function ResearchTaskForm() {
       });
     },
     onSuccess: () => {
-      router.push(`/research/${verifiedInfluencer?.id}`);
+      router.push(`/influencers/${verifiedInfluencer?.id}`);
     }
   });
 
