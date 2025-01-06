@@ -16,3 +16,11 @@ export interface LeaderboardStats {
     verifiedClaims: number;
   }
   
+  export interface ApiError {
+    message: string;
+    details?: string;
+    error: string;
+    statusCode: number;
+  }
+  
+  

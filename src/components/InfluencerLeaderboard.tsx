@@ -85,21 +85,21 @@ export default function InfluencerLeaderboard() {
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
           <div className="bg-gray-800/50 rounded-lg p-6 flex items-start space-x-3">
-            <UserGroupIcon className="w-5 h-5 text-emerald-500" />
+            <UserGroupIcon className="w-12 h-12 text-emerald-500" />
             <div>
               <p className="text-2xl font-bold">{stats?.totalInfluencers.toLocaleString()}</p>
               <p className="text-gray-400 text-sm">Active Influencers</p>
             </div>
           </div>
           <div className="bg-gray-800/50 rounded-lg p-6 flex items-start space-x-3">
-            <CheckCircleIcon className="w-5 h-5 text-emerald-500" />
+            <CheckCircleIcon className="w-12 h-12 text-emerald-500" />
             <div>
               <p className="text-2xl font-bold">{stats?.totalClaims.toLocaleString()}</p>
               <p className="text-gray-400 text-sm">Claims Verified</p>
             </div>
           </div>
           <div className="bg-gray-800/50 rounded-lg p-6 flex items-start space-x-3">
-            <ChartBarIcon className="w-5 h-5 text-emerald-500" />
+            <ChartBarIcon className="w-12 h-12 text-emerald-500" />
             <div>
               <p className="text-2xl font-bold">{(stats?.averageTrustScore ? stats?.averageTrustScore* 100 : 0)}%</p>
               <p className="text-gray-400 text-sm">Average Trust Score</p>
